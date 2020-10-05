@@ -1,5 +1,9 @@
 TICKET_PRICE = 10
 tickets_remaining = 100
+SERVICE_CHARGE = 2
+
+def calculate_price(num_tickets):
+    return (num_tickets * TICKET_PRICE) + SERVICE_CHARGE
 
 while tickets_remaining >= 1:
 
@@ -13,8 +17,8 @@ while tickets_remaining >= 1:
     except ValueError as err:
         print("Oh no! We ran into an issue. {}".format(err))
     else:
-        price = (number_of_tickets * TICKET_PRICE)
-        print("That will cost ${}".format(price))
+        amount_due = calculate_price(number_of_tickets)
+        print("That will cost ${}".format(amount_due))
         should_proceed = input("Would you like to proceed? Y/N? ")
         if should_proceed.lower() == "y":
             print("SOLD!")
